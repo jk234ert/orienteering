@@ -9,7 +9,7 @@
 #import "ActivityViewController.h"
 #import "QRCodeReaderViewController.h"
 #import "QRCodeReader.h"
-#import "FRDLivelyButton.h"
+
 #import "TimeUtil.h"
 #import "FBShimmeringView.h"
 #import "ResultViewViewController.h"
@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, ActivityProcessStatus) {
 
 @interface ActivityViewController ()
 
-@property(nonatomic,retain)FRDLivelyButton *titleButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *navTitleButton;
 
 @property (weak, nonatomic) IBOutlet UIView *scoreBoardView;
@@ -448,12 +448,14 @@ typedef NS_ENUM(NSInteger, ActivityProcessStatus) {
 }
 
 - (IBAction)titleButtonClicked:(id)sender {
+    /*
     if(_titleButton.buttonStyle == kFRDLivelyButtonStyleCaretUp){
         [_titleButton setStyle:kFRDLivelyButtonStyleCaretDown animated:YES];
     } else {
         [_titleButton setStyle:kFRDLivelyButtonStyleCaretUp animated:YES];
     }
     [self toggleScoreBoard];
+     */
 }
 
 -(void)toggleScoreBoard

@@ -36,12 +36,12 @@
 - (id)initWithFrame:(CGRect)frame
 {
   if ((self = [super initWithFrame:frame])) {
-    [self addOverlay];
+    //[self addOverlay];
   }
   
   return self;
 }
-
+/*
 - (void)drawRect:(CGRect)rect
 {
   CGRect innerRect = CGRectInset(rect, 50, 50);
@@ -76,5 +76,5 @@
   
   [self.layer addSublayer:_overlay];
 }
-
+*/
 @end

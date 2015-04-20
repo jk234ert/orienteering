@@ -172,32 +172,57 @@
 
 - (void)setupUIComponentsWithCancelButtonTitle:(NSString *)cancelButtonTitle
 {
-  self.cameraView                                       = [[QRCodeReaderView alloc] init];
-  _cameraView.translatesAutoresizingMaskIntoConstraints = NO;
-  _cameraView.clipsToBounds                             = YES;
-  [self.view addSubview:_cameraView];
-  
-  [_codeReader.previewLayer setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-  
-  if ([_codeReader.previewLayer.connection isVideoOrientationSupported]) {
-    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    self.cameraView                                       = [[QRCodeReaderView alloc] init];
+    _cameraView.translatesAutoresizingMaskIntoConstraints = NO;
+    _cameraView.clipsToBounds                             = YES;
+    [self.view addSubview:_cameraView];
     
-    _codeReader.previewLayer.connection.videoOrientation = [QRCodeReader videoOrientationFromInterfaceOrientation:orientation];
-  }
-  
-  if ([_codeReader hasFrontDevice]) {
-    _switchCameraButton = [[QRCameraSwitchButton alloc] init];
-    [_switchCameraButton setTranslatesAutoresizingMaskIntoConstraints:false];
-    [_switchCameraButton addTarget:self action:@selector(switchCameraAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_switchCameraButton];
-  }
-  
-  self.cancelButton                                       = [[UIButton alloc] init];
-  _cancelButton.translatesAutoresizingMaskIntoConstraints = NO;
-  [_cancelButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
-  [_cancelButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-  [_cancelButton addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:_cancelButton];
+    [_codeReader.previewLayer setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    
+    if ([_codeReader.previewLayer.connection isVideoOrientationSupported]) {
+        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        
+        _codeReader.previewLayer.connection.videoOrientation = [QRCodeReader videoOrientationFromInterfaceOrientation:orientation];
+    }
+    
+    if ([_codeReader hasFrontDevice]) {
+        _switchCameraButton = [[QRCameraSwitchButton alloc] init];
+        [_switchCameraButton setTranslatesAutoresizingMaskIntoConstraints:false];
+        [_switchCameraButton addTarget:self action:@selector(switchCameraAction:) forControlEvents:UIControlEventTouchUpInside];
+        //[self.view addSubview:_switchCameraButton];
+    }
+    
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"QRScanBackground"]];
+    backgroundView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    backgroundView.backgroundColor = [UIColor clearColor];
+    backgroundView.opaque = 0;
+    [self.view addSubview:backgroundView];
+    
+    self.cancelButton                                       = [[UIButton alloc] init];
+    _cancelButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [_cancelButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
+    [_cancelButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    [_cancelButton addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_cancelButton];
+    
+    UILabel *promptLabel = [[UILabel alloc] init];
+    [promptLabel setText:@"将二维码/条码放入框内，即可自动扫描"];
+    [promptLabel setTextColor:[UIColor whiteColor]];
+    [promptLabel setFont:[UIFont systemFontOfSize:14 weight:0.5]];
+    [promptLabel setTextAlignment:NSTextAlignmentCenter];
+    
+    NSInteger width = promptLabel.frame.size.width;
+    NSInteger verticalspacing = ([[UIScreen mainScreen] bounds].size.width - width)/2.0;
+    
+    CGRect oldFrame = promptLabel.frame;
+    CGRect newFrame = CGRectMake(0, 430, [UIScreen mainScreen].bounds.size.width, 18);
+    
+    promptLabel.frame = newFrame;
+    
+    [self.view addSubview:promptLabel];
+    
+
+    
 }
 
 - (void)setupAutoLayoutConstraints
@@ -210,15 +235,16 @@
    [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_cameraView]|" options:0 metrics:nil views:views]];
   [self.view addConstraints:
    [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_cancelButton]-|" options:0 metrics:nil views:views]];
-  
+  /*
   if (_switchCameraButton) {
     NSDictionary *switchViews = NSDictionaryOfVariableBindings(_switchCameraButton);
     
     [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_switchCameraButton(50)]" options:0 metrics:nil views:switchViews]];
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_switchCameraButton(70)]" options:0 metrics:nil views:switchViews]];
     [self.view addConstraints:
      [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_switchCameraButton(70)]|" options:0 metrics:nil views:switchViews]];
   }
+   */
 }
 
 - (void)switchDeviceInput

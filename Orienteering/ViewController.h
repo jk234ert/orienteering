@@ -1,0 +1,15 @@
+//
+//  ViewController.h
+//  Orienteering
+//
+//  Created by macmini on 15/3/30.
+//  Copyright (c) 2015年 GY. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ViewController : UIViewController
+
+
+@end
+

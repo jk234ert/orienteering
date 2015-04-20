@@ -1,0 +1,37 @@
+{
+  "images" : [
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "fill",
+          "width" : 1,
+          "height" : 1
+        },
+        "capInsets" : {
+          "bottom" : 666,
+          "top" : 0,
+          "right" : 0,
+          "left" : 374
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "login_background.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "login_background-1.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "login_background-2.png"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

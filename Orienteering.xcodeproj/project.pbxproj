@@ -88,6 +88,11 @@
 		9A46836F1AD50C3A00D76EB8 /* TimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A46836E1AD50C3A00D76EB8 /* TimeUtil.m */; };
 		9A6EBB341ADF996100FBC0BC /* TempResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EBB321ADF996100FBC0BC /* TempResultViewController.m */; };
 		9A6EBB351ADF996100FBC0BC /* TempResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A6EBB331ADF996100FBC0BC /* TempResultViewController.xib */; };
+		9A72FF681AE8CFDE000D42A2 /* AFNetworking in Resources */ = {isa = PBXBuildFile; fileRef = 9A72FF661AE8CFDE000D42A2 /* AFNetworking */; };
+		9A72FF691AE8CFDE000D42A2 /* UIKit+AFNetworking in Resources */ = {isa = PBXBuildFile; fileRef = 9A72FF671AE8CFDE000D42A2 /* UIKit+AFNetworking */; };
+		9A72FF6D1AE8D135000D42A2 /* LegendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A72FF6B1AE8D135000D42A2 /* LegendViewController.m */; };
+		9A72FF6E1AE8D135000D42A2 /* LegendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A72FF6C1AE8D135000D42A2 /* LegendViewController.xib */; };
+		9A72FF721AE8DA26000D42A2 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A72FF711AE8DA26000D42A2 /* AccountManager.m */; };
 		9A76773E1AD61DAE00C6C9E5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A76773C1AD61DAE00C6C9E5 /* LoginViewController.m */; };
 		9A76773F1AD61DAE00C6C9E5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A76773D1AD61DAE00C6C9E5 /* LoginViewController.xib */; };
 		9A7677831AD6279300C6C9E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7677821AD6279300C6C9E5 /* CoreGraphics.framework */; };
@@ -290,6 +295,13 @@
 		9A6EBB311ADF996100FBC0BC /* TempResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempResultViewController.h; sourceTree = "<group>"; };
 		9A6EBB321ADF996100FBC0BC /* TempResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempResultViewController.m; sourceTree = "<group>"; };
 		9A6EBB331ADF996100FBC0BC /* TempResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TempResultViewController.xib; sourceTree = "<group>"; };
+		9A72FF661AE8CFDE000D42A2 /* AFNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AFNetworking; sourceTree = "<group>"; };
+		9A72FF671AE8CFDE000D42A2 /* UIKit+AFNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "UIKit+AFNetworking"; sourceTree = "<group>"; };
+		9A72FF6A1AE8D135000D42A2 /* LegendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegendViewController.h; sourceTree = "<group>"; };
+		9A72FF6B1AE8D135000D42A2 /* LegendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegendViewController.m; sourceTree = "<group>"; };
+		9A72FF6C1AE8D135000D42A2 /* LegendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LegendViewController.xib; sourceTree = "<group>"; };
+		9A72FF701AE8DA26000D42A2 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
+		9A72FF711AE8DA26000D42A2 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
 		9A76773B1AD61DAE00C6C9E5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9A76773C1AD61DAE00C6C9E5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9A76773D1AD61DAE00C6C9E5 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -620,6 +632,9 @@
 				9AB74BC11AD3755900F4AB3C /* MyActivityViewController.h */,
 				9AB74BC21AD3755900F4AB3C /* MyActivityViewController.m */,
 				9AB74BC31AD3755900F4AB3C /* MyActivityViewController.xib */,
+				9A72FF6A1AE8D135000D42A2 /* LegendViewController.h */,
+				9A72FF6B1AE8D135000D42A2 /* LegendViewController.m */,
+				9A72FF6C1AE8D135000D42A2 /* LegendViewController.xib */,
 			);
 			name = MyActivity;
 			sourceTree = "<group>";
@@ -685,6 +700,8 @@
 		9A39D1A01ACCE46C0084DFD0 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				9A72FF661AE8CFDE000D42A2 /* AFNetworking */,
+				9A72FF671AE8CFDE000D42A2 /* UIKit+AFNetworking */,
 				9A0364A21AE490C1002A5563 /* QRCodeReaderViewController */,
 				9A2951A01AE48E7A007FD938 /* JVFloatin */,
 				9A29519C1AE48E61007FD938 /* JTHamburgerButton */,
@@ -729,6 +746,13 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		9A72FF6F1AE8D9D7000D42A2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		9A76773A1AD6178800C6C9E5 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,6 +781,8 @@
 				9A3951FA1AD7C702005E418F /* UserInfoCacheManager.m */,
 				9AF30DB61AE0DEBA00E47804 /* ActivityManager.h */,
 				9AF30DB71AE0DEBA00E47804 /* ActivityManager.m */,
+				9A72FF701AE8DA26000D42A2 /* AccountManager.h */,
+				9A72FF711AE8DA26000D42A2 /* AccountManager.m */,
 			);
 			name = Handler;
 			sourceTree = "<group>";
@@ -793,6 +819,7 @@
 		9AB51DCF1AC8F65500A1E103 = {
 			isa = PBXGroup;
 			children = (
+				9A72FF6F1AE8D9D7000D42A2 /* Network */,
 				9A3951F71AD7B061005E418F /* CoreLocation.framework */,
 				9A76778F1AD6618100C6C9E5 /* Handler */,
 				9A76778E1AD6617700C6C9E5 /* Models */,
@@ -950,6 +977,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A334B7F1ADB487900A702DA /* EditUserInfoTableViewCell.xib in Resources */,
+				9A72FF6E1AE8D135000D42A2 /* LegendViewController.xib in Resources */,
 				9AB74BE91AD3BA8700F4AB3C /* ActivityViewController.xib in Resources */,
 				9A7677BE1AD67C5C00C6C9E5 /* UserDetailTableViewCell.xib in Resources */,
 				9A254F2A1AD6078E007FE510 /* testStadiumThumb.jpg in Resources */,
@@ -969,9 +997,11 @@
 				9A76773F1AD61DAE00C6C9E5 /* LoginViewController.xib in Resources */,
 				9AB74BD91AD392B300F4AB3C /* StadiumsViewController.xib in Resources */,
 				9AB74BDF1AD3973400F4AB3C /* StadiumsTableViewCell.xib in Resources */,
+				9A72FF691AE8CFDE000D42A2 /* UIKit+AFNetworking in Resources */,
 				9AB74BC51AD3755900F4AB3C /* MyActivityViewController.xib in Resources */,
 				9A6EBB351ADF996100FBC0BC /* TempResultViewController.xib in Resources */,
 				9A76778D1AD64B9C00C6C9E5 /* UserDetailViewController.xib in Resources */,
+				9A72FF681AE8CFDE000D42A2 /* AFNetworking in Resources */,
 				9A7677881AD6432700C6C9E5 /* UserInfoTableViewCell.xib in Resources */,
 				9A8AF9A01ADF5BE000BE0325 /* ResultViewViewController.xib in Resources */,
 				9A3951D61AD75981005E418F /* UserInfoEditViewController.xib in Resources */,
@@ -1045,6 +1075,7 @@
 				9A29518D1AE48DF4007FD938 /* btRippleButtton.m in Sources */,
 				9A29511E1AE48D80007FD938 /* TWRChartView.m in Sources */,
 				9A29512C1AE48DA5007FD938 /* FBShimmeringView.m in Sources */,
+				9A72FF721AE8DA26000D42A2 /* AccountManager.m in Sources */,
 				9A2951821AE48DD9007FD938 /* RZRectZoomAnimationController.m in Sources */,
 				9AB74BE31AD3B5A100F4AB3C /* MyActivityTableViewCell.m in Sources */,
 				9A2AC8771ADCF9CB002BF8E7 /* PathTableViewCell.m in Sources */,
@@ -1070,6 +1101,7 @@
 				9AF30DB81AE0DEBA00E47804 /* ActivityManager.m in Sources */,
 				9A2AC87C1ADCFBCD002BF8E7 /* ApplyFormViewController.m in Sources */,
 				9AB74BDE1AD3973400F4AB3C /* StadiumsTableViewCell.m in Sources */,
+				9A72FF6D1AE8D135000D42A2 /* LegendViewController.m in Sources */,
 				9A2951221AE48D80007FD938 /* TWRLineChart.m in Sources */,
 				9A7677871AD6432700C6C9E5 /* UserInfoTableViewCell.m in Sources */,
 			);

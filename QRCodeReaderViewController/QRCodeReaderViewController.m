@@ -211,10 +211,7 @@
     [promptLabel setFont:[UIFont systemFontOfSize:14 weight:0.5]];
     [promptLabel setTextAlignment:NSTextAlignmentCenter];
     
-    NSInteger width = promptLabel.frame.size.width;
-    NSInteger verticalspacing = ([[UIScreen mainScreen] bounds].size.width - width)/2.0;
-    
-    CGRect oldFrame = promptLabel.frame;
+
     CGRect newFrame = CGRectMake(0, 430, [UIScreen mainScreen].bounds.size.width, 18);
     
     promptLabel.frame = newFrame;

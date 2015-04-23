@@ -14,6 +14,7 @@
 #import "FBShimmeringView.h"
 #import "ResultViewViewController.h"
 #import "TempResultViewController.h"
+#import "LegendViewController.h"
 
 
 #define SCOREBOARD_FALLING_DISTANCE 55
@@ -69,6 +70,8 @@ typedef NS_ENUM(NSInteger, ActivityProcessStatus) {
 @property (weak, nonatomic) IBOutlet UIImageView *mapView;
 
 @property(nonatomic)CGPoint mapOriginCenterPoint;
+
+
 @end
 
 @implementation ActivityViewController
@@ -864,5 +867,13 @@ typedef NS_ENUM(NSInteger, ActivityProcessStatus) {
     }
 }
 
+- (IBAction)infoButtonClicked:(id)sender {
+    LegendViewController *aVC = [[LegendViewController alloc] init];
+    [aVC setDotInfoImageName:[[ActivityManager sharedInstance] getCorrespondingDotInfoName:_currentActivity]];
+
+    
+    
+    [[self navigationController] pushViewController:aVC animated:YES];
+}
 
 @end

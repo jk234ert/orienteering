@@ -20,4 +20,7 @@
 
 -(NSArray*)getCorrespondingPathArray: (ActivityModel*)activity;
 -(NSString*)getCorrespondingMapName: (ActivityModel*)activity;
+-(NSString*)getCorrespondingDotInfoName: (ActivityModel*)activit;
+
+-(BOOL)uploadActivityScore:(NSArray*)scroreArray withActivity:(ActivityModel*)activity;
 @end

@@ -13,6 +13,7 @@
 
 @property(nonatomic,retain)NSMutableDictionary *activityPathDict;
 @property(nonatomic,retain)NSMutableDictionary *activityMapnameDict;
+@property(nonatomic,retain)NSMutableDictionary *activityDotInfonameDict;
 @property(nonatomic,retain)NSMutableArray *totalDotArray;
 @end
 
@@ -43,6 +44,14 @@
         [self.activityMapnameDict setValue:@"MapYouth" forKey:@"青年"];
         [self.activityMapnameDict setValue:@"MapYoungsters" forKey:@"青少年"];
         [self.activityMapnameDict setValue:@"MapMiddleYouth" forKey:@"中青年"];
+        
+        self.activityDotInfonameDict = [[NSMutableDictionary alloc] initWithCapacity:10];
+        [self.activityDotInfonameDict setValue:@"DotInfoHome" forKey:@"家庭"];
+        [self.activityDotInfonameDict setValue:@"DotInfoMan" forKey:@"男子"];
+        [self.activityDotInfonameDict setValue:@"DotInfoWoman" forKey:@"女子"];
+        [self.activityDotInfonameDict setValue:@"DotInfoYouth" forKey:@"青年"];
+        [self.activityDotInfonameDict setValue:@"DotInfoYoungsters" forKey:@"青少年"];
+        [self.activityDotInfonameDict setValue:@"DotInfoMiddleYouth" forKey:@"中青年"];
         
         NSNumber *storeArrayNumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"registeredActivityNumber"];
         if([storeArrayNumber intValue] > 0)
@@ -121,6 +130,11 @@
 -(NSString*)getCorrespondingMapName: (ActivityModel*)activity
 {
     return [_activityMapnameDict objectForKey:[activity mapType]];
+}
+
+-(NSString*)getCorrespondingDotInfoName: (ActivityModel*)activity
+{
+    return [_activityDotInfonameDict objectForKey:[activity mapType]];
 }
 
 @end

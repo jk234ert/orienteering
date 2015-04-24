@@ -31,4 +31,6 @@
 +(void)saveStoredUserBirthDay:(NSDate*)newUserBirthDay;
 +(void)saveStoredUserPWD:(NSString*)newUserPWD;
 
++(void)saveStoredUser:(NSDictionary*)userDict password:(NSString*)pwd;
+
 @end

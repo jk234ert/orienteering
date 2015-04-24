@@ -30,6 +30,12 @@ static NSString * const UserDetailInfoCellReuseIdentifier = @"userDetailInfoTabl
     _detailInfoTableView.dataSource = self;
     _detailInfoTableView.delegate = self;
     
+    UIView *view = [UIView new];
+    
+    view.backgroundColor = [UIColor clearColor];
+    
+    [_detailInfoTableView setTableFooterView:view];
+    
     [_detailInfoTableView registerNib:[UINib nibWithNibName:@"UserDetailTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:UserDetailInfoCellReuseIdentifier];
     
     [self.view addSubview:_detailInfoTableView];

@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *uesrAvatarImageView;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet UILabel *realnameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *genderLabel;
 
 @end
 
@@ -36,6 +38,11 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(userDetailInfoEditButtonClicked:)]) {
         [self.delegate userDetailInfoEditButtonClicked:_username];
     }
+}
+
+-(void)setMobileNumberString:(NSString *)mobileNumberString
+{
+    
 }
 
 -(void)setUsername:(NSString *)username
@@ -69,6 +76,8 @@
     }
     
     [self.usernameLabel setText:[UserInfoCacheManager getStoredUsername]];
+    [self.realnameLabel setText:[UserInfoCacheManager getStoredUserRealName]];
+    [self.genderLabel setText:[UserInfoCacheManager getStoredUserGender]];
 }
 
 @end

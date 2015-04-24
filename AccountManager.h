@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#define ROOT_URL @"http://58.213.138.147/orienteering/"
 
 @interface AccountManager : NSObject
 
 +(instancetype)sharedInstance;
 
--(BOOL)loginUsingUsername :(NSString*)username password:(NSString*)pwd;
+
+-(void)loginUsingUsername :(NSString*)username password:(NSString*)pwd mainVC:(UIViewController*)vc completionBlock:(void (^)())loginBlock;
 -(void)logout;
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "UserInfoCacheManager.h"
+#import "TimeUtil.h"
 
 @implementation UserInfoCacheManager
 
@@ -178,6 +179,31 @@
 +(void)saveStoredUserPWD:(NSString*)newUserPWD{
     NSUserDefaults* preferences = [NSUserDefaults standardUserDefaults];
     [preferences setObject:newUserPWD forKey:@"userpwd"];
+}
+
++(void)saveStoredUser:(NSDictionary*)userDict password:(NSString*)pwd
+{
+    [self saveStoredUserID:[userDict objectForKey:@"userid"]];
+    [self saveStoredUsername:[userDict objectForKey:@"alias"]];
+    [self saveStoredUserRealName:[userDict objectForKey:@"realname"]];
+    //[self saveStoredUserAvatar:[userDict objectForKey:@"realname"]];
+    [self saveStoredUserGender:[userDict objectForKey:@"gender"]];
+    [self saveStoredUserHeight:[(NSNumber*)[userDict objectForKey:@"height"] integerValue]];
+    [self saveStoredUserWeight:[(NSNumber*)[userDict objectForKey:@"weight"] integerValue]];
+    
+    NSString *dateString = [userDict objectForKey:@"birthday"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    
+    [dateFormatter setDateFormat:@"yyyyMMdd"];
+    
+    NSDate *date = [dateFormatter dateFromString:dateString];
+
+    
+    [self saveStoredUserBirthDay:date];
+    [self saveStoredUserPWD:pwd];
+
+
 }
 
 

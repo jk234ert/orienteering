@@ -17,6 +17,8 @@
 
 @property(nonatomic, copy)NSString *thumbPath;
 @property(nonatomic, copy)NSString *username;
+@property(nonatomic, copy)NSString *mobileNumberString;
+@property(nonatomic, copy)NSString *emailString;
 
 @property (nonatomic, weak) id <UserDetailInfoTableViewCellEditButtonProtocol> delegate;
 @end

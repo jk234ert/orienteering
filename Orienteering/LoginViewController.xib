@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -88,11 +88,39 @@
                         <action selector="testLoginButtonClicked:" destination="-1" eventType="touchUpInside" id="aHO-BR-yHf"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DOx-OO-NwJ">
+                    <rect key="frame" x="0.0" y="387" width="414" height="60"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="yKn-Gz-6Ls"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjh-f6-Qa9">
+                    <rect key="frame" x="0.0" y="387" width="414" height="60"/>
+                    <state key="normal" title="游客登录">
+                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="guestLogin:" destination="-1" eventType="touchUpInside" id="qnY-Ma-UB2"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jlo-TP-Sga">
+                    <rect key="frame" x="0.0" y="386" width="414" height="1"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="y8E-T9-jN6"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="DOx-OO-NwJ" firstAttribute="top" secondItem="gjh-f6-Qa9" secondAttribute="top" id="5Qk-GK-as1"/>
                 <constraint firstItem="uWC-iH-Ex9" firstAttribute="bottom" secondItem="hy1-lf-ztJ" secondAttribute="bottom" id="71K-Ac-lUv"/>
+                <constraint firstItem="DOx-OO-NwJ" firstAttribute="top" secondItem="hy1-lf-ztJ" secondAttribute="bottom" constant="1" id="9Uj-6a-FWw"/>
+                <constraint firstItem="DOx-OO-NwJ" firstAttribute="trailing" secondItem="gjh-f6-Qa9" secondAttribute="trailing" id="BIE-Mi-kJ6"/>
                 <constraint firstItem="VPJ-zJ-poS" firstAttribute="centerX" secondItem="Nhe-20-ckD" secondAttribute="centerX" id="Dln-gb-lhY"/>
+                <constraint firstAttribute="trailing" secondItem="DOx-OO-NwJ" secondAttribute="trailing" id="GZ8-GJ-eYa"/>
                 <constraint firstAttribute="centerX" secondItem="dh8-8Q-dlP" secondAttribute="centerX" id="Gea-UI-xjp"/>
                 <constraint firstAttribute="trailing" secondItem="Nhe-20-ckD" secondAttribute="trailing" id="GsI-6e-1b5"/>
                 <constraint firstAttribute="bottom" secondItem="HY9-7X-89F" secondAttribute="bottom" id="Gx7-Eu-G9h"/>
@@ -100,18 +128,24 @@
                 <constraint firstAttribute="trailing" secondItem="hy1-lf-ztJ" secondAttribute="trailing" id="IcD-9a-vtS"/>
                 <constraint firstItem="uWC-iH-Ex9" firstAttribute="top" secondItem="hy1-lf-ztJ" secondAttribute="top" id="OoY-gH-62m"/>
                 <constraint firstAttribute="trailing" secondItem="HY9-7X-89F" secondAttribute="trailing" id="PM2-uS-Ei5"/>
+                <constraint firstAttribute="trailing" secondItem="jlo-TP-Sga" secondAttribute="trailing" id="PxH-qJ-qYz"/>
                 <constraint firstItem="Nhe-20-ckD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qmh-bv-l7W"/>
                 <constraint firstItem="hy1-lf-ztJ" firstAttribute="top" secondItem="VPJ-zJ-poS" secondAttribute="bottom" constant="18" id="RoT-0Z-L95"/>
                 <constraint firstItem="VPJ-zJ-poS" firstAttribute="centerY" secondItem="Nhe-20-ckD" secondAttribute="centerY" id="Ry4-6K-Rer"/>
+                <constraint firstItem="DOx-OO-NwJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WMn-Q6-P9a"/>
                 <constraint firstItem="VPJ-zJ-poS" firstAttribute="bottom" secondItem="otd-ch-GTG" secondAttribute="bottom" constant="20" id="WbH-vU-9gN"/>
                 <constraint firstItem="HY9-7X-89F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aDg-9A-dhs"/>
                 <constraint firstItem="hy1-lf-ztJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="agp-9l-i8h"/>
+                <constraint firstItem="jlo-TP-Sga" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="e7B-Vw-iGw"/>
                 <constraint firstItem="uWC-iH-Ex9" firstAttribute="leading" secondItem="hy1-lf-ztJ" secondAttribute="leading" id="eAU-yt-eEr"/>
+                <constraint firstItem="DOx-OO-NwJ" firstAttribute="leading" secondItem="gjh-f6-Qa9" secondAttribute="leading" id="fls-9G-s8U"/>
                 <constraint firstItem="VPJ-zJ-poS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h05-c7-czR"/>
+                <constraint firstItem="jlo-TP-Sga" firstAttribute="top" secondItem="hy1-lf-ztJ" secondAttribute="bottom" id="kBn-tz-L8d"/>
                 <constraint firstItem="VPJ-zJ-poS" firstAttribute="leading" secondItem="V5y-6p-xEA" secondAttribute="leading" constant="-15" id="kai-dP-b2q"/>
                 <constraint firstAttribute="trailing" secondItem="VPJ-zJ-poS" secondAttribute="trailing" id="lya-0J-xMQ"/>
                 <constraint firstItem="VPJ-zJ-poS" firstAttribute="top" secondItem="V5y-6p-xEA" secondAttribute="top" constant="-23" id="n8B-nh-2Sx"/>
                 <constraint firstItem="VPJ-zJ-poS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="188" id="oJD-KE-3F4"/>
+                <constraint firstItem="DOx-OO-NwJ" firstAttribute="bottom" secondItem="gjh-f6-Qa9" secondAttribute="bottom" id="pIB-gB-c9N"/>
                 <constraint firstItem="dh8-8Q-dlP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="pY9-qU-CSs"/>
                 <constraint firstItem="otd-ch-GTG" firstAttribute="centerX" secondItem="V5y-6p-xEA" secondAttribute="centerX" id="vCQ-Bb-xUP"/>
                 <constraint firstItem="uWC-iH-Ex9" firstAttribute="trailing" secondItem="hy1-lf-ztJ" secondAttribute="trailing" id="zMb-f7-VDw"/>

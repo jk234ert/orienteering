@@ -51,7 +51,13 @@
         
         [self.userAvatarImageView setImage:image];
     }
-    [self.usernameLabel setText:[UserInfoCacheManager getStoredUsername]];
+    if([UserInfoCacheManager getStoredUserID])
+    {
+        [self.usernameLabel setText:[UserInfoCacheManager getStoredUsername]];
+    } else {
+        [self.usernameLabel setText:@"游客"];
+    }
+    
 }
 
 @end

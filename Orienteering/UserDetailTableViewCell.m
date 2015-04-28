@@ -74,10 +74,16 @@
         [self.uesrAvatarImageView setImage:image];
         self.uesrAvatarImageView.backgroundColor = [UIColor colorWithRed:221.0/225.0 green:221.0/225.0 blue:221.0/225.0 alpha:1];
     }
-    
-    [self.usernameLabel setText:[UserInfoCacheManager getStoredUsername]];
-    [self.realnameLabel setText:[UserInfoCacheManager getStoredUserRealName]];
-    [self.genderLabel setText:[UserInfoCacheManager getStoredUserGender]];
+    if([UserInfoCacheManager getStoredUserID])
+    {
+        [self.usernameLabel setText:[UserInfoCacheManager getStoredUsername]];
+        [self.realnameLabel setText:[UserInfoCacheManager getStoredUserRealName]];
+        [self.genderLabel setText:[UserInfoCacheManager getStoredUserGender]];
+    } else {
+        [self.usernameLabel setText:@"游客"];
+        [self.realnameLabel setText:@"游客"];
+        [self.genderLabel setText:@"--"];
+    }
 }
 
 @end

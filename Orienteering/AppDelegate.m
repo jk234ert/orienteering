@@ -13,6 +13,8 @@
 #import "RZZoomAlphaAnimationController.h"
 #import "RZCardSlideAnimationController.h"
 
+#import "UserInfoCacheManager.h"
+
 
 
 @interface AppDelegate ()
@@ -43,6 +45,7 @@
     //UINavigationController *nacController = [[UINavigationController alloc] initWithRootViewController:_drawerViewController];
     //[nacController setNavigationBarHidden:YES];
     */
+    
     LoginViewController *loginVC = [[LoginViewController alloc] init];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

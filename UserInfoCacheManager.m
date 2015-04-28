@@ -206,6 +206,19 @@
 
 }
 
++(void)removeAllCache
+{
+    [self saveStoredUserID:nil];
+    [self saveStoredUsername:nil];
+    [self saveStoredUserRealName:nil];
+    [self saveStoredUserAvatar:nil];
+    [self saveStoredUserGender:nil];
+    [self saveStoredUserHeight:0];
+    [self saveStoredUserWeight:0];
+    [self saveStoredUserBirthDay:nil];
+    [self saveStoredUserPWD:nil];
+}
+
 
 
 @end

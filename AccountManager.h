@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "ActivityManager.h"
 
 #define ROOT_URL @"http://58.213.138.147/orienteering/"
 
@@ -19,6 +20,6 @@
 -(void)loginUsingUsername :(NSString*)username password:(NSString*)pwd mainVC:(UIViewController*)vc completionBlock:(void (^)())loginBlock;
 -(void)logout;
 
-
+-(void)uploadScore: (NSArray*)scoreArray ofActivity:(ActivityModel*)activity withDotNumberArray:(NSArray*)dotNumberArray;
 
 @end

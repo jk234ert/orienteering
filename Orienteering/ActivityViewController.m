@@ -16,6 +16,8 @@
 #import "TempResultViewController.h"
 #import "LegendViewController.h"
 
+#import "AccountManager.h"
+#import "UserInfoCacheManager.h"
 
 #define SCOREBOARD_FALLING_DISTANCE 55
 #define SCOREBOARD_HEIGHT 229
@@ -115,7 +117,7 @@ typedef NS_ENUM(NSInteger, ActivityProcessStatus) {
     
     [_nextDotNumberLabel setText:@"--"];
     [_remainDotCountLabel setText:@"--"];
-    
+    /*
     FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:_buttonIndicatorLabel.frame];
     [_scoreBoardView addSubview:shimmeringView];
     
@@ -127,6 +129,7 @@ typedef NS_ENUM(NSInteger, ActivityProcessStatus) {
     
     // Start shimmering.
     shimmeringView.shimmering = YES;
+     */
     
     _originScanButtonFrame = _scanButton.frame;
     
@@ -213,6 +216,12 @@ typedef NS_ENUM(NSInteger, ActivityProcessStatus) {
 -(void)scanButtonUpInside
 {
     _scanButton.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:102.0/255.0 blue:0 alpha:1];
+    if(_activityProgressStatus == ActivityProcessStatusFinished)
+    {
+        [self scoreViewButtonClicked:nil];
+        //[self uploadScore];
+        return;
+    }
 
     if ([QRCodeReader supportsMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]]) {
         static QRCodeReaderViewController *reader = nil;
@@ -308,6 +317,7 @@ typedef NS_ENUM(NSInteger, ActivityProcessStatus) {
     [[self navigationController] popViewControllerAnimated:YES];
 }
 - (IBAction)scanButtonClicked:(id)sender {
+    
     if ([QRCodeReader supportsMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]]) {
         static QRCodeReaderViewController *reader = nil;
         static dispatch_once_t onceToken;
@@ -392,7 +402,7 @@ typedef NS_ENUM(NSInteger, ActivityProcessStatus) {
                             
                             [_buttonIndicatorLabel setText:@"点击提交按钮提交成绩 >>>"];
                             [_scanButton setTitle:@"提交" forState:UIControlStateNormal];
-                            [_scanButton removeTarget:self action:@selector(scanButtonUpInside) forControlEvents:UIControlEventTouchUpInside];
+                            //[_scanButton removeTarget:self action:@selector(scanButtonUpInside) forControlEvents:UIControlEventTouchUpInside];
                         } else {
                             NSString *nextDotLabelString = [NSString stringWithFormat:@"%d-%@",(int)(_finishedDotNumber+1),[_testDotNumberArray objectAtIndex:(_finishedDotNumber)]];
                             [_nextDotNumberLabel setText:nextDotLabelString];
@@ -414,7 +424,7 @@ typedef NS_ENUM(NSInteger, ActivityProcessStatus) {
                 
                 break;
             case ActivityProcessStatusFinished:
-
+                [self uploadScore];
                 break;
                 
             default:
@@ -827,6 +837,11 @@ typedef NS_ENUM(NSInteger, ActivityProcessStatus) {
     
     
     [[self navigationController] pushViewController:aVC animated:YES];
+}
+
+-(void)uploadScore
+{
+    [[AccountManager sharedInstance] uploadScore:_scoreArray ofActivity:_currentActivity withDotNumberArray:_testDotNumberArray];
 }
 
 - (IBAction)mapPinchDetected:(id)sender {

@@ -115,4 +115,51 @@
     });
 }
 
+-(void)uploadScore: (NSArray*)scoreArray ofActivity:(ActivityModel*)activity withDotNumberArray:(NSArray*)dotNumberArray
+{
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMddHHmmss"];
+    
+    NSString *userID = [UserInfoCacheManager getStoredUserID];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    /*
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    //manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+     */
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSString *postURL = [NSString stringWithFormat:ROOT_URL@"score"];
+    NSString *detailedTimeString = @"[";
+    
+    for(int x=0;x<[dotNumberArray count];x++){
+        NSString *dotNumberString = [[dotNumberArray objectAtIndex:x] stringValue];
+        NSDate *perDotDate = [scoreArray objectAtIndex:(x+1)];
+        
+        NSString *perDotScore = [NSString stringWithFormat:@"{\"dotid\":\"%@\",\"reachtime\":\"%@\"},",dotNumberString,[dateFormatter stringFromDate:perDotDate]];
+        detailedTimeString = [detailedTimeString stringByAppendingString:perDotScore];
+    }
+    detailedTimeString = [detailedTimeString substringWithRange:NSMakeRange(0, [detailedTimeString length] - 1)];
+    detailedTimeString = [detailedTimeString stringByAppendingString:@"]"];
+    
+    
+    NSString *postString = [NSString stringWithFormat:@"{\"activityid\":\"1\",\"detailedtime\":%@,\"finishtime\":\"%@\",\"pathid\":\"1\",\"stadiumid\":\"1\",\"starttime\":\"%@\",\"userid\":\"%@\"}",detailedTimeString,[dateFormatter stringFromDate:[scoreArray lastObject]],[dateFormatter stringFromDate:[scoreArray objectAtIndex:0]],userID];
+    
+    NSData *requestData = [postString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    
+    [manager POST:postURL parameters:requestData success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"upload result request response is %@",responseObject);
+
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"upload result error is %@",error);
+    }];
+}
+
 @end

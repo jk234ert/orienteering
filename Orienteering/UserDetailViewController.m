@@ -10,6 +10,7 @@
 #import "JTHamburgerButton.h"
 #import "AppDelegate.h"
 #import "UserInfoEditViewController.h"
+#import "UserInfoCacheManager.h"
 
 static NSString * const UserDetailInfoCellReuseIdentifier = @"userDetailInfoTableViewCell";
 
@@ -81,6 +82,7 @@ static NSString * const UserDetailInfoCellReuseIdentifier = @"userDetailInfoTabl
 }
 
 - (IBAction)logOffButtonClicked:(id)sender {
+    [UserInfoCacheManager removeAllCache];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 

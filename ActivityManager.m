@@ -78,6 +78,9 @@
     NSArray *home = @[@57,@31,@33,@48,@32,@47,@49,@59,@52,@51,@35,@37,@58,@38,@53,@34,@40,@18];
     [_activityPathDict setObject:home forKey:@"家庭"];
     
+    //NSArray *home = @[@57,@31];
+    //[_activityPathDict setObject:home forKey:@"家庭"];
+    
     NSArray *man = @[@42,@43,@54,@31,@46,@44,@32,@48,@33,@52,@36,@37,@39,@34,@38,@58,@51,@49,@55,@100];
     [_activityPathDict setObject:man forKey:@"男子"];
     

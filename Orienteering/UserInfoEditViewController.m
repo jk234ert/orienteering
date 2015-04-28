@@ -145,42 +145,79 @@ static NSString* const editUserInfoTableViewCellReuseIdetifier = @"editUserInfoT
             case 0:
             {
                 [cell setText1:@"昵称"];
-                [cell setValueString:[UserInfoCacheManager getStoredUsername]];
+                if([UserInfoCacheManager getStoredUserID])
+                {
+                    [cell setValueString:[UserInfoCacheManager getStoredUsername]];
+                } else {
+                    [cell setValueString:@"游客"];
+                }
+                
             }
                 break;
                 
             case 1:
             {
                 [cell setText1:@"姓名"];
-                [cell setValueString:[UserInfoCacheManager getStoredUserRealName]];
+                
+                if([UserInfoCacheManager getStoredUserID])
+                {
+                    [cell setValueString:[UserInfoCacheManager getStoredUserRealName]];
+                } else {
+                    [cell setValueString:@"游客"];
+                }
+                
             }
                 break;
             case 2:
             {
                 [cell setText1:@"性别"];
-                [cell setValueString:[UserInfoCacheManager getStoredUserGender]];
+                
+                if([UserInfoCacheManager getStoredUserID])
+                {
+                    [cell setValueString:[UserInfoCacheManager getStoredUserGender]];
+                } else {
+                    [cell setValueString:@"--"];
+                }
             }
                 break;
             case 3:
             {
                 [cell setText1:@"身高"];
-                NSString *heightString = [NSString stringWithFormat:@"%ld 厘米",(long)[UserInfoCacheManager getStoredUserHeight]];
-                [cell setValueString:heightString];
+                
+                if([UserInfoCacheManager getStoredUserID])
+                {
+                    NSString *heightString = [NSString stringWithFormat:@"%ld 厘米",(long)[UserInfoCacheManager getStoredUserHeight]];
+                    [cell setValueString:heightString];
+                } else {
+                    [cell setValueString:@"--"];
+                }
             }
                 break;
             case 4:
             {
                 [cell setText1:@"体重"];
-                NSString *heightString = [NSString stringWithFormat:@"%ld 公斤",(long)[UserInfoCacheManager getStoredUserWeight]];
-                [cell setValueString:heightString];
+                
+                if([UserInfoCacheManager getStoredUserID])
+                {
+                    NSString *heightString = [NSString stringWithFormat:@"%ld 公斤",(long)[UserInfoCacheManager getStoredUserWeight]];
+                    [cell setValueString:heightString];
+                } else {
+                    [cell setValueString:@"--"];
+                }
             }
                 break;
             case 5:
             {
                 [cell setText1:@"生日"];
-                NSString *birthdayString = [TimeUtil NSDateToString:[UserInfoCacheManager getStoredUserBirthDay]];
                 
-                [cell setValueString:birthdayString];
+                if([UserInfoCacheManager getStoredUserID])
+                {
+                    NSString *birthdayString = [TimeUtil NSDateToString:[UserInfoCacheManager getStoredUserBirthDay]];
+                    
+                    [cell setValueString:birthdayString];
+                } else {
+                    [cell setValueString:@"--"];
+                }
             }
                 break;
             case 6:

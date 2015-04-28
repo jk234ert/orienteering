@@ -28,6 +28,20 @@
     _pwdTextField.tag = 2;
     _usernameTextField.delegate = self;
     _pwdTextField.delegate = self;
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    if([UserInfoCacheManager getStoredUserID])
+    {
+        [[AppDelegate globalDelegate] loginSuccess];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,6 +96,10 @@
     return;
     [UserInfoCacheManager saveStoredUsername:[self.usernameTextField text]];
     [UserInfoCacheManager saveStoredUserPWD:[self.pwdTextField text]];
+    [[AppDelegate globalDelegate] loginSuccess];
+}
+- (IBAction)guestLogin:(id)sender {
+    [UserInfoCacheManager saveStoredUserID:nil];
     [[AppDelegate globalDelegate] loginSuccess];
 }
 

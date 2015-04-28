@@ -33,4 +33,6 @@
 
 +(void)saveStoredUser:(NSDictionary*)userDict password:(NSString*)pwd;
 
++(void)removeAllCache;
+
 @end
